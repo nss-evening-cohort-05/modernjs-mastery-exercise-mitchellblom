@@ -52,7 +52,6 @@ $(document).ready(() => {
 						});
 					});
 							console.log("giantArray: ", giantArray);
-							console.log("which button pressed: ", $(e.currentTarget))
 							let whichButtonClicked = e.currentTarget
 					determineWhichToWrite(whichButtonClicked);
 				});
@@ -61,8 +60,26 @@ $(document).ready(() => {
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
-	const determineWhichToWrite = () => {
+	const determineWhichToWrite = (whichButtonClicked) => {
 		console.log("getting to determine");
+		console.log("team name button pressed: ", whichButtonClicked.id);
+
+		giantArray.forEach((each) => {
+			console.log("team name of all objects: ", each.name);
+		})
+		
+
+		 // for (var i = 0; i < giantArray.length; i++) {
+			// 		console.log(giantArray.teams);
+		 // 	if (whichButtonClicked.id === giantArray.name) {
+			// 	}
+		 // }
+
+			// giantArray.forEach((whichButtonClicked) => {
+			// 	if (whichButtonClicked.id === giantArray.name) {
+			// 		console.log(giantArray.name);
+			// 	}
+			// })
 
 			// match team button clicked to team id.
 			// console.log the team id number
