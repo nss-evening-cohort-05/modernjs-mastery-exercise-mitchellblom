@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
 	let giantArray = [];
-	let counter = [];
+	let counter = 0;
 
 	$(".team-selector").click((e)=> {
 		$("#character-container").html("");
@@ -87,10 +87,8 @@ $(document).ready(() => {
 	const writeCharacterToDom = (matchingCharacterObject, clickedTeam, matchingCharacterObjectGender) => {
 		// add one to counter here, and reset counter somewhere to add `<div class="row">` and `</div>`
 
-		// if (i % 4 === 0) {
-  //               characterString += `<div class="row">`;
-  //           }
   		let validatedCharacterDescrip;
+  		let characterString;
 
   		if (matchingCharacterObject.description === "" && matchingCharacterObjectGender === "Male") {
   			validatedCharacterDescrip = "1234567890";
@@ -100,7 +98,14 @@ $(document).ready(() => {
   			validatedCharacterDescrip = matchingCharacterObject.description;
   		}
 
-		let characterString = `<div class="col-md-3 characterCard" id="${matchingCharacterObject.name}">
+		counter++;
+		console.log(counter);
+
+		// if (counter % 4 === 0) {
+  //               characterString = `<div class="row">`;
+  //           }
+
+		characterString = `<div class="col-md-3 characterCard" id="${matchingCharacterObject.name}">
                 				<h3>${matchingCharacterObject.name}</h3>
                 				<img src="${matchingCharacterObject.image}" class="characterImage ${matchingCharacterObjectGender}" alt="Character Image">
                 				<h4>Description: ${validatedCharacterDescrip}</h4>

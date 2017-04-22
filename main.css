@@ -27,6 +27,11 @@ button {
 	height: 70px;
 }
 
+#body-placeholder {
+	width: 600px;
+	height: 250px;
+}
+
 #character-container {
 	padding: 4%;
 	text-align: center;
