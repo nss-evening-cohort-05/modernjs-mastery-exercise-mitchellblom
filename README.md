@@ -1,6 +1,6 @@
 # ModernJS Mastery Exercise
 
-![Splashpage]()
+![Splashpage](https://raw.githubusercontent.com/nss-evening-cohort-05/modernjs-mastery-exercise-mitchellblom/challenge/images/submission.png)
 
 <hr>
 
