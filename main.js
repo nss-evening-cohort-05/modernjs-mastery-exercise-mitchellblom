@@ -67,29 +67,27 @@ $(document).ready(() => {
 		let matchingCharacter;
 		let clickedTeam = whichButtonClicked.id;
 		giantArray.forEach((object) => {
-			// console.log(object.name);
-			// console.log(clickedTeam);
 			if (object.name == clickedTeam){
 				console.log("match found and the id is: ", object.id);
 				matchingId = object.id;
+				matchingTeamName = object.name;
 			}
 		});
 		giantArray.forEach((object) => {
 				if (object.team_id == matchingId) {						
 					matchingCharacterObject = object;
-					writeCharacterToDom(matchingCharacterObject); // write characters who have a matching team_id
+					writeCharacterToDom(matchingCharacterObject, clickedTeam);
 		}
-
 		})
 
 	}
 
-	const writeCharacterToDom = (matchingCharacterObject) => {
+	const writeCharacterToDom = (matchingCharacterObject, clickedTeam) => {
 		let characterString = `<div class="col-md-3 characterCard" id="${matchingCharacterObject.name}">
                 				<h3>${matchingCharacterObject.name}</h3>
                 				<img src="${matchingCharacterObject.image}" class="img-circle thumbnail" alt="Character Image">
                 				<h4>${matchingCharacterObject.description}</h4>
-                				<h4>Team: ${matchingCharacterObject.team_id}</h4>
+                				<h4>Team: ${clickedTeam}</h4>
                 				<h4>Gender: ${matchingCharacterObject.gender_id}</h4>
                 				</div>`;
             $("#character-container").append(characterString);
