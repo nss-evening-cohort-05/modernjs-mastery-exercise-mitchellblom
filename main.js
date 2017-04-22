@@ -67,6 +67,7 @@ $(document).ready(() => {
 		let matchingId;
 		let matchingCharacter;
 		let matchingCharacterObject;
+		let matchingCharacterObjectGender;
 		let clickedTeam = whichButtonClicked.id;
 		giantArray.forEach((object) => {
 			if (object.name == clickedTeam){
@@ -76,32 +77,19 @@ $(document).ready(() => {
 		giantArray.forEach((object) => {
 			if (object.team_id == matchingId) {						
 				matchingCharacterObject = object;
-				writeCharacterToDom(matchingCharacterObject, clickedTeam);
+				console.log(matchingCharacterObject.gender_id);
+				if (matchingCharacterObject.gender_id == 0) {
+					matchingCharacterObjectGender = "Female";
+				} else {matchingCharacterObjectGender = "Male";}
+				writeCharacterToDom(matchingCharacterObject, clickedTeam, matchingCharacterObjectGender);
 		}
-
-		giantArray.forEach((object) => {
-			// console.log(matchingCharacterObject);
-			// if (matchingCharacterObject.gender_id == object.id) {
-				// matchingCharacterObject.gender_name = determineGender();
-			// 	console.log(matchingCharacterObject.gender_name);
-			// }
-		})
 
 		})
 	}
 
-	// const determineGender = (matchingCharacterObject) => {
-	// 	console.log(matchingCharacterObject);
-	// 	giantArray.forEach((object) => {
-	// 		if (matchingCharacterObject.gender_id == object.id) {
-	// 	}
-
-	// 	return genderName;
-	// }
 
 
-
-	const writeCharacterToDom = (matchingCharacterObject, clickedTeam) => {
+	const writeCharacterToDom = (matchingCharacterObject, clickedTeam, matchingCharacterObjectGender) => {
 		// add one to counter here, and reset counter somewhere to add `<div class="row">` and `</div>`
 
 		// if (i % 4 === 0) {
@@ -113,7 +101,7 @@ $(document).ready(() => {
                 				<img src="${matchingCharacterObject.image}" class="characterImage thumbnail" alt="Character Image">
                 				<h4>${matchingCharacterObject.description}</h4>
                 				<h4>Team: ${clickedTeam}</h4>
-                				<h4>Gender: ${matchingCharacterObject.gender_id}</h4>
+                				<h4>Gender: ${matchingCharacterObjectGender}</h4>
                 				</div>`;
             // if (i % 4 === 3) {
             //         characterString += `</div>`;
