@@ -4,6 +4,7 @@ $(document).ready(() => {
 	let counter = [];
 
 	$(".team-selector").click((e)=> {
+		$("#character-container").html("");
 		dataGetter(e)
 	});
 
@@ -62,10 +63,10 @@ $(document).ready(() => {
 
 
 	const determineWhichToWrite = (whichButtonClicked) => {
-		$("#character-container").html("");
 		console.log("team name button pressed: ", whichButtonClicked.id);
 		let matchingId;
 		let matchingCharacter;
+		let matchingCharacterObject;
 		let clickedTeam = whichButtonClicked.id;
 		giantArray.forEach((object) => {
 			if (object.name == clickedTeam){
@@ -77,8 +78,28 @@ $(document).ready(() => {
 				matchingCharacterObject = object;
 				writeCharacterToDom(matchingCharacterObject, clickedTeam);
 		}
+
+		giantArray.forEach((object) => {
+			// console.log(matchingCharacterObject);
+			// if (matchingCharacterObject.gender_id == object.id) {
+				// matchingCharacterObject.gender_name = determineGender();
+			// 	console.log(matchingCharacterObject.gender_name);
+			// }
+		})
+
 		})
 	}
+
+	// const determineGender = (matchingCharacterObject) => {
+	// 	console.log(matchingCharacterObject);
+	// 	giantArray.forEach((object) => {
+	// 		if (matchingCharacterObject.gender_id == object.id) {
+	// 	}
+
+	// 	return genderName;
+	// }
+
+
 
 	const writeCharacterToDom = (matchingCharacterObject, clickedTeam) => {
 		// add one to counter here, and reset counter somewhere to add `<div class="row">` and `</div>`
