@@ -24,3 +24,11 @@ body {
 #character-container {
 	padding: 2%;
 }
+
+.Male {
+	border: 4px solid blue;
+}
+
+.Female {
+	border: 4px solid pink;
+}

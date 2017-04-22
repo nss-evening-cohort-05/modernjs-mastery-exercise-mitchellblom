@@ -53,7 +53,6 @@ $(document).ready(() => {
 							giantArray.push(each);
 						});
 					});
-							console.log("giantArray: ", giantArray);
 							let whichButtonClicked = e.currentTarget;
 					determineWhichToWrite(whichButtonClicked);
 				});
@@ -63,7 +62,6 @@ $(document).ready(() => {
 
 
 	const determineWhichToWrite = (whichButtonClicked) => {
-		console.log("team name button pressed: ", whichButtonClicked.id);
 		let matchingId;
 		let matchingCharacter;
 		let matchingCharacterObject;
@@ -77,7 +75,6 @@ $(document).ready(() => {
 		giantArray.forEach((object) => {
 			if (object.team_id == matchingId) {						
 				matchingCharacterObject = object;
-				console.log(matchingCharacterObject.gender_id);
 				if (matchingCharacterObject.gender_id == 0) {
 					matchingCharacterObjectGender = "Female";
 				} else {matchingCharacterObjectGender = "Male";}
@@ -86,8 +83,6 @@ $(document).ready(() => {
 
 		})
 	}
-
-
 
 	const writeCharacterToDom = (matchingCharacterObject, clickedTeam, matchingCharacterObjectGender) => {
 		// add one to counter here, and reset counter somewhere to add `<div class="row">` and `</div>`
@@ -98,7 +93,7 @@ $(document).ready(() => {
 
 		let characterString = `<div class="col-md-3 characterCard" id="${matchingCharacterObject.name}">
                 				<h3>${matchingCharacterObject.name}</h3>
-                				<img src="${matchingCharacterObject.image}" class="characterImage thumbnail" alt="Character Image">
+                				<img src="${matchingCharacterObject.image}" class="characterImage ${matchingCharacterObjectGender}" alt="Character Image">
                 				<h4>${matchingCharacterObject.description}</h4>
                 				<h4>Team: ${clickedTeam}</h4>
                 				<h4>Gender: ${matchingCharacterObjectGender}</h4>
@@ -107,7 +102,6 @@ $(document).ready(() => {
             //         characterString += `</div>`;
             //     }
             $("#character-container").append(characterString);
-
 	}
 
 });
