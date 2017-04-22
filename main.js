@@ -2,6 +2,8 @@ $(document).ready(() => {
 
 	let giantArray = [];
 	let counter = [];
+	// let femaleNoDescripFiller = "abcde fghij klmno pqrst uvwxy z";
+	// let maleNoDescripFiller = "1234567890";
 
 	$(".team-selector").click((e)=> {
 		$("#character-container").html("");
@@ -90,11 +92,20 @@ $(document).ready(() => {
 		// if (i % 4 === 0) {
   //               characterString += `<div class="row">`;
   //           }
+  		let validatedCharacterDescrip;
+
+  		if (matchingCharacterObject.description === "" && matchingCharacterObjectGender === "Male") {
+  			validatedCharacterDescrip = "1234567890";
+  		} else if (matchingCharacterObject.description === "" && matchingCharacterObjectGender === "Female") {
+  			validatedCharacterDescrip = "abcde fghij klmno pqrst uvwxy z";
+  		} else {
+  			validatedCharacterDescrip = matchingCharacterObject.description;
+  		}
 
 		let characterString = `<div class="col-md-3 characterCard" id="${matchingCharacterObject.name}">
                 				<h3>${matchingCharacterObject.name}</h3>
                 				<img src="${matchingCharacterObject.image}" class="characterImage ${matchingCharacterObjectGender}" alt="Character Image">
-                				<h4>${matchingCharacterObject.description}</h4>
+                				<h4>Description: ${validatedCharacterDescrip}</h4>
                 				<h4>Team: ${clickedTeam}</h4>
                 				<h4>Gender: ${matchingCharacterObjectGender}</h4>
                 				</div>`;
