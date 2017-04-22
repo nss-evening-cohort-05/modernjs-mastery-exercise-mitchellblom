@@ -61,8 +61,10 @@ $(document).ready(() => {
 
 
 	const determineWhichToWrite = (whichButtonClicked) => {
+		$("#character-container").html("");
 		console.log("team name button pressed: ", whichButtonClicked.id);
 		let matchingId;
+		let matchingCharacter;
 		let clickedTeam = whichButtonClicked.id;
 		giantArray.forEach((object) => {
 			// console.log(object.name);
@@ -73,21 +75,30 @@ $(document).ready(() => {
 			}
 		});
 		giantArray.forEach((object) => {
-				if (object.team_id == matchingId) {						// not entering here??
-					console.log("matching character", object.name);
+				if (object.team_id == matchingId) {						
+					matchingCharacterObject = object;
+					writeCharacterToDom(matchingCharacterObject); // write characters who have a matching team_id
 		}
 
-
-				// console.log("team_id of matching button pressed", each.team_id);
 		})
 
-			// match team button clicked to team id.
-			// console.log the team id number
-			// write to dom only those characters who have a matching team_id
-
-				// 			writeProductCardsToDOM(giantArray);
-
 	}
+
+	const writeCharacterToDom = (matchingCharacterObject) => {
+		let characterString = `<div class="col-md-3 characterCard" id="${matchingCharacterObject.name}">
+                				<h3>${matchingCharacterObject.name}</h3>
+                				<img src="${matchingCharacterObject.image}" class="img-circle thumbnail" alt="Character Image">
+                				<h4>${matchingCharacterObject.description}</h4>
+                				<h4>Team: ${matchingCharacterObject.team_id}</h4>
+                				<h4>Gender: ${matchingCharacterObject.gender_id}</h4>
+                				</div>`;
+            $("#character-container").append(characterString);
+	}
+
+
+
+
+
 
 	const writeProductCardsToDOM = (array) => {				// below similar to previous exercise. using for reference
 
