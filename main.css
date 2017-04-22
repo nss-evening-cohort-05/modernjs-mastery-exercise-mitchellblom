@@ -1,11 +1,17 @@
 body {
 	background-color: #504a4a;
+	color: #f78f3f;
+}
+
+button {
+	background-color: #000000;
 }
 
 .characterCard {
-	border: 2px solid black;
-	height: 500px;
+	border: 5px solid black;
+	height: 550px;
 	margin: .5%;
+	border-radius: 5%;
 }
 
 .characterImage {
@@ -22,7 +28,8 @@ body {
 }
 
 #character-container {
-	padding: 2%;
+	padding: 4%;
+	text-align: center;
 }
 
 .Male {

@@ -2,8 +2,6 @@ $(document).ready(() => {
 
 	let giantArray = [];
 	let counter = [];
-	// let femaleNoDescripFiller = "abcde fghij klmno pqrst uvwxy z";
-	// let maleNoDescripFiller = "1234567890";
 
 	$(".team-selector").click((e)=> {
 		$("#character-container").html("");
