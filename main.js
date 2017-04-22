@@ -61,25 +61,25 @@ $(document).ready(() => {
 
 
 	const determineWhichToWrite = (whichButtonClicked) => {
-		console.log("getting to determine");
 		console.log("team name button pressed: ", whichButtonClicked.id);
+		let matchingId;
+		let clickedTeam = whichButtonClicked.id;
+		giantArray.forEach((object) => {
+			// console.log(object.name);
+			// console.log(clickedTeam);
+			if (object.name == clickedTeam){
+				console.log("match found and the id is: ", object.id);
+				matchingId = object.id;
+			}
+		});
+		giantArray.forEach((object) => {
+				if (object.team_id == matchingId) {						// not entering here??
+					console.log("matching character", object.name);
+		}
 
-		giantArray.forEach((each) => {
-			console.log("team name of all objects: ", each.name);
+
+				// console.log("team_id of matching button pressed", each.team_id);
 		})
-		
-
-		 // for (var i = 0; i < giantArray.length; i++) {
-			// 		console.log(giantArray.teams);
-		 // 	if (whichButtonClicked.id === giantArray.name) {
-			// 	}
-		 // }
-
-			// giantArray.forEach((whichButtonClicked) => {
-			// 	if (whichButtonClicked.id === giantArray.name) {
-			// 		console.log(giantArray.name);
-			// 	}
-			// })
 
 			// match team button clicked to team id.
 			// console.log the team id number
@@ -89,7 +89,7 @@ $(document).ready(() => {
 
 	}
 
-	const writeProductCardsToDOM = (array) => {
+	const writeProductCardsToDOM = (array) => {				// below similar to previous exercise. using for reference
 
             $("#character-container").html("");
             characterString = "";
