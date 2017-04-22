@@ -5,7 +5,7 @@ $(document).ready(() => {
 
 	$(".team-selector").click((e)=> {
 		$("#character-container").html("");
-		dataGetter(e)
+		dataGetter(e);
 	});
 
     const loadTeams = () => {
@@ -56,7 +56,7 @@ $(document).ready(() => {
 							let whichButtonClicked = e.currentTarget;
 					determineWhichToWrite(whichButtonClicked);
 				});
-	}
+	};
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -76,17 +76,19 @@ $(document).ready(() => {
 		giantArray.forEach((object) => {
 			if (object.team_id == matchingId) {						
 				matchingCharacterObject = object;
-				if (matchingCharacterObject.gender_id == 0) {
+				if (matchingCharacterObject.gender_id === 0) {
 					matchingCharacterObjectGender = "Female";
 				} else {matchingCharacterObjectGender = "Male";}
 				writeCharacterToDom(matchingCharacterObject, clickedTeam, matchingCharacterObjectGender);
 		}
 
-		})
-	}
+		});
+	};
 
 	const writeCharacterToDom = (matchingCharacterObject, clickedTeam, matchingCharacterObjectGender) => {
 
+		counter++;
+		
   		let validatedCharacterDescrip;
   		let characterString = "";
 
@@ -97,8 +99,6 @@ $(document).ready(() => {
   		} else {
   			validatedCharacterDescrip = matchingCharacterObject.description;
   		}
-
-		counter++;
 
 		if (counter % 4 === 0) {
                 characterString += `<div class="row">`;
@@ -117,6 +117,6 @@ $(document).ready(() => {
                 }
 
             $("#character-container").append(characterString);
-	}
+	};
 
 });
