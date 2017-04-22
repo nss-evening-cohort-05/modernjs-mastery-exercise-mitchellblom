@@ -3,14 +3,24 @@ body {
 }
 
 .characterCard {
+	border: 2px solid black;
+	height: 500px;
+	margin: .5%;
+}
 
+.characterImage {
+	border-radius: 100%;
 }
 
 .team-selector {
 	margin: 0 1%;
 }
 
-.brand-logo {
-	width: 100px;
-	height: 50px;
+#brand-logo {
+	width: 150px;
+	height: 70px;
+}
+
+#character-container {
+	padding: 2%;
 }
