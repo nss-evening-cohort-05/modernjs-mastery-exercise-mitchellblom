@@ -4,7 +4,6 @@
 * Clone this repo to your machine
 * Make a 'challenge' branch
 
-
 Install and load:
 * jquery
 * bootstrap
